@@ -51,16 +51,10 @@ macro_rules! read_value {
     };
 }
 
+
 fn main() {
     input! {
-        s: chars,
+        r: u64,
     }
-
-    for (prev, next) in s.iter().by_ref().zip(s.iter().by_ref().skip(1)) {
-        if prev == next {
-            println!("Bad");
-            return;
-        }
-    }
-    println!("Good");
+    println!("{}", 3 * r.pow(2))
 }

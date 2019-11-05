@@ -51,16 +51,20 @@ macro_rules! read_value {
     };
 }
 
+use std::collections::HashMap;
+
 fn main() {
     input! {
         s: chars,
     }
-
-    for (prev, next) in s.iter().by_ref().zip(s.iter().by_ref().skip(1)) {
-        if prev == next {
-            println!("Bad");
-            return;
-        }
+    let mut letters = HashMap::new();
+    for ch in s.iter() {
+        let counter = letters.entry(ch).or_insert(0);
+        *counter += 1;
     }
-    println!("Good");
+    if letters.len() == 2 && letters.values().all(|&x| x == 2) {
+        println!("{}", "Yes");
+    } else {
+        println!("{}", "No")
+    }
 }

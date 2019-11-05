@@ -51,16 +51,15 @@ macro_rules! read_value {
     };
 }
 
+use std::cmp;
+
 fn main() {
     input! {
-        s: chars,
+        n: u32,
+        a: u32,
+        b: u32,
     }
-
-    for (prev, next) in s.iter().by_ref().zip(s.iter().by_ref().skip(1)) {
-        if prev == next {
-            println!("Bad");
-            return;
-        }
-    }
-    println!("Good");
+    let train = a * n;
+    let taxi = b;
+    println!("{}", cmp::min(train, taxi));
 }

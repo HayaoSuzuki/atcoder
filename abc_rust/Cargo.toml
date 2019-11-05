@@ -1,0 +1,7 @@
+[package]
+name = "abc"
+version = "0.1.0"
+authors = ["hayao"]
+edition = "2018"
+
+[dependencies]
